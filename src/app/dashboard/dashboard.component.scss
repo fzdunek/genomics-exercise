@@ -1,0 +1,17 @@
+.container{
+  text-align: center;
+}
+
+.form-container{
+  margin: 150px auto 0 auto;
+  width: 400px;
+  text-align: center;
+
+  &__field{
+    display: block;
+  }
+
+  &__spinner {
+    margin: 10px auto;
+  }
+}

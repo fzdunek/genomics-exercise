@@ -1,0 +1,10 @@
+<div class="response">
+  <mat-form-field appearance="fill" class="response__textarea">
+    <mat-label>Response JSON</mat-label>
+    <textarea matInput
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="30">{{ responseData | json }}</textarea>
+  </mat-form-field>
+</div>

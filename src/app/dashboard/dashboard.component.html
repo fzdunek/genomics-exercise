@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="dataForm" (submit)="submit()">
+      <mat-form-field class="form-container__field" appearance="outline">
+        <mat-label> Adres URL
+        </mat-label>
+        <input matInput formControlName="url" required>
+        <mat-error *ngIf="dataForm.controls.url.touched && dataForm.controls.url.invalid">
+          <span *ngIf="dataForm.controls.url.errors.required">To pole jest wymagane</span>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="spinnerService.visibility | async">{{ spinnerService.visibility ? 'Pobierz' : 'Proszę czekać...' }}</button>
+      <mat-progress-spinner mode="indeterminate" class="form-container__spinner" *ngIf="spinnerService.visibility | async"></mat-progress-spinner>
+    </form>
+    <app-map *ngIf="response?.cords" [responseData]="response"></app-map>
+    <app-response-textarea *ngIf="response?.cords" [responseData]="response"></app-response-textarea>
+  </div>
+</div>
