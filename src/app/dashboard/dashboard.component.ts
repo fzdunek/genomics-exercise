@@ -17,7 +17,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   response: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
   dataForm: FormGroup;
-  showSpinner: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,7 +35,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       return;
     }
     this.dataService.sendGetRequest(this.dataForm.value.url).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<Response[]>) => {
-      console.log(res);
       this.response = res;
     })
   }
